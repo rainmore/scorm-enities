@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id 'com.ewerk.gradle.plugins.jaxb2' version '1.0.9'
+    id 'com.jfrog.bintray'              version '1.8.4'  apply false
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+description 'An library to build Java entity based on [XML Schema Definition Files](https://scorm.com/scorm-explained/technical-scorm/content-packaging/xml-schema-definition-files/]by JAXB'
+group = 'au.com.rainmore'
+version = '1.0'
+
+apply from: 'project/publishing.gradle'
+
+wrapper {
+    group = 'init'
+    gradleVersion = '5.4'
+    distributionType Wrapper.DistributionType.ALL
+}
+
+jaxb2 {
+    xjc {
+        'imscp_rootv1p1p2' {
+            basePackage = 'com.scorm.manifesttemplates.scorm12'
+            schema = 'src/main/xsd/scorm12schemadefinition/imscp_rootv1p1p2.xsd'
+        }
+    }
+}
