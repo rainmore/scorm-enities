@@ -17,9 +17,10 @@ repositories {
 }
 
 description 'An library to build Java entity based on [XML Schema Definition Files](https://scorm.com/scorm-explained/technical-scorm/content-packaging/xml-schema-definition-files/]by JAXB'
-group = 'au.com.rainmore'
+group = 'au.com.rainmore.scorm'
 version = '1.0'
 
+apply from: 'project/assemble.gradle'
 apply from: 'project/publishing.gradle'
 
 wrapper {
@@ -31,15 +32,15 @@ wrapper {
 jaxb2 {
     xjc {
         'adlcp_rootv1p2' {
-            basePackage = 'com.scorm.manifest.v12'
+            basePackage = 'au.com.rainmore.scorm.manifest.v12'
             schema = 'src/main/xsd/scorm12schemadefinition/adlcp_rootv1p2.xsd'
         }
         'imscp_rootv1p1p2' {
-            basePackage = 'com.scorm.manifest.v112'
+            basePackage = 'au.com.rainmore.scorm.manifest.v112'
             schema = 'src/main/xsd/scorm12schemadefinition/imscp_rootv1p1p2.xsd'
         }
         'imsmd_rootv1p2p1' {
-            basePackage = 'com.scorm.manifest.v121'
+            basePackage = 'au.com.rainmore.scorm.manifest.v121'
             schema = 'src/main/xsd/scorm12schemadefinition/imsmd_rootv1p2p1.xsd'
         }
     }

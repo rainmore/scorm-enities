@@ -1,16 +1,19 @@
-apply plugin: 'signing'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
+
+def scmUrl = 'https://github.com/rainmore/scorm-imsmanifest-java'
 
 // Create the pom configuration:
 def pomConfig = {
     name rootProject.name
     description project.description
+    inceptionYear '2019'
+    packaging 'jar'
 
     licenses {
         license {
-            name 'MIT License'
+            name 'Apache License 2.0'
             url 'https://github.com/rainmore/scorm-imsmanifest-java/blob/master/LICENSE'
             distribution 'repo'
         }
@@ -24,46 +27,30 @@ def pomConfig = {
     }
 
     scm {
-        url 'https://github.com/rainmore/scorm-imsmanifest-java'
+        url scmUrl
     }
 }
 
 // Create the publication with the pom configuration:
 publishing {
     publications {
-        MyPublication(MavenPublication) {
+        main(MavenPublication) {
             from components.java
-            groupId project.group
-            artifactId rootProject.name
-            version project.version
             pom.withXml {
-                asNode().children().last() + pomConfig()
+                asNode().children().last() + pomConfig
             }
         }
     }
 }
 
-
-signing {
-    sign configurations.archives
-    required { gradle.taskGraph.hasTask('publish') }
-}
-
-
 bintray {
     user = project.ext.get('jfrog.bintray.username')
     key  = project.ext.get('jfrog.bintray.apiKey')
-    publications = ['archives']
-
+    configurations = ['archives']
     pkg {
-        name = 'gradle-bintray-plugin-conf-example'
-        userOrg = user
-        licenses = ['MIT License']
-        vcsUrl = 'https://github.com/rainmore/scorm-imsmanifest-java.git'
-        version {
-            name = rootProject.name
-            desc = project.description
-            vcsTag = project.version
-        }
+        repo = 'scorm-imsmanifest-java'
+        name = 'au.com.rainmore.scorm.manifesttypes'
+        licenses = ['Apache License 2.0']
+        vcsUrl = scmUrl
     }
 }
