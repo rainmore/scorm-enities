@@ -4,6 +4,7 @@
 
 <xsd:schema xmlns="http://www.adlnet.org/xsd/adlcp_rootv1p2"
             targetNamespace="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+            xmlns:xml="http://www.w3.org/XML/1998/namespace"
             xmlns:imscp="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             elementFormDefault="unqualified"
@@ -394,21 +395,21 @@
     <!-- ************ -->
     <!-- ** schema ** -->
     <!-- ************ -->
-<!--    <xsd:simpleType name="schemaType">-->
-<!--        <xsd:restriction base="xsd:string">-->
-<!--            <xsd:maxLength value="100"/>-->
-<!--        </xsd:restriction>-->
-<!--    </xsd:simpleType>-->
+    <!--    <xsd:simpleType name="schemaType">-->
+    <!--        <xsd:restriction base="xsd:string">-->
+    <!--            <xsd:maxLength value="100"/>-->
+    <!--        </xsd:restriction>-->
+    <!--    </xsd:simpleType>-->
 
-<!--    <xsd:simpleType name="newSchemaType">-->
-<!--        <xsd:restriction base="imscp:schemaType">-->
-<!--            <xsd:enumeration value="ADL SCORM" />-->
-<!--        </xsd:restriction>-->
-<!--    </xsd:simpleType>-->
+    <!--    <xsd:simpleType name="newSchemaType">-->
+    <!--        <xsd:restriction base="imscp:schemaType">-->
+    <!--            <xsd:enumeration value="ADL SCORM" />-->
+    <!--        </xsd:restriction>-->
+    <!--    </xsd:simpleType>-->
 
     <xsd:simpleType name="schemaType">
         <xsd:restriction base="xsd:string">
-<!--            <xsd:maxLength value="100"/>-->
+            <!--            <xsd:maxLength value="100"/>-->
             <xsd:enumeration value="ADL SCORM" />
         </xsd:restriction>
     </xsd:simpleType>
@@ -417,20 +418,20 @@
     <!-- ******************* -->
     <!-- ** schemaversion ** -->
     <!-- ******************* -->
-<!--    <xsd:simpleType name="schemaversionType">-->
-<!--        <xsd:restriction base="xsd:string">-->
-<!--            <xsd:maxLength value="20"/>-->
-<!--        </xsd:restriction>-->
-<!--    </xsd:simpleType>-->
-<!--    <xsd:simpleType name="newSchemaversionType">-->
-<!--        <xsd:restriction base="imscp:schemaversionType">-->
-<!--            <xsd:enumeration value="1.2" />-->
-<!--        </xsd:restriction>-->
-<!--    </xsd:simpleType>-->
+    <!--    <xsd:simpleType name="schemaversionType">-->
+    <!--        <xsd:restriction base="xsd:string">-->
+    <!--            <xsd:maxLength value="20"/>-->
+    <!--        </xsd:restriction>-->
+    <!--    </xsd:simpleType>-->
+    <!--    <xsd:simpleType name="newSchemaversionType">-->
+    <!--        <xsd:restriction base="imscp:schemaversionType">-->
+    <!--            <xsd:enumeration value="1.2" />-->
+    <!--        </xsd:restriction>-->
+    <!--    </xsd:simpleType>-->
 
     <xsd:simpleType name="schemaversionType">
         <xsd:restriction base="xsd:string">
-<!--            <xsd:maxLength value="20"/>-->
+            <!--            <xsd:maxLength value="20"/>-->
             <xsd:enumeration value="1.2" />
         </xsd:restriction>
     </xsd:simpleType>
@@ -515,4 +516,6 @@
             <xsd:maxLength value="200" />
         </xsd:restriction>
     </xsd:simpleType>
+
 </xsd:schema>
+
